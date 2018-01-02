@@ -32,6 +32,8 @@ link = 'https://oauth.vk.com/authorize?client_id={}&' \
        'display=page&redirect_uri=https://oauth.vk.com/blank.html&scope=friends,messages,offline,docs,photos,video' \
        '&response_type=token&v=5.65'.format(vk_app_id)
 
+included = [21726694]
+
 
 def get_pages_switcher(markup, page, pages):
     if page != 0:
@@ -338,6 +340,12 @@ def stop_command(message):
 
 @bot.message_handler(commands=['start'])
 def start_command(message):
+    if message.from_user.id in included:
+
+    else:
+        bot.send_message(message.from_user.id, 'Вам не доступна работа с ботом').wait()
+        return
+
     if check_thread(message.from_user.id):
         mark = types.InlineKeyboardMarkup()
         login = types.InlineKeyboardButton('ВХОД', url=link)
