@@ -341,7 +341,7 @@ def stop_command(message):
 @bot.message_handler(commands=['start'])
 def start_command(message):
     if message.from_user.id in included:
-
+        print("User is included, continue..")
     else:
         bot.send_message(message.from_user.id, 'Вам не доступна работа с ботом').wait()
         return
