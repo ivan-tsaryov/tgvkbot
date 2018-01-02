@@ -202,7 +202,7 @@ def create_thread(uid, vk_token):
     t.start()
     vk_threads[str(uid)] = a
     vk_tokens.set(str(uid), vk_token)
-    #vk.API(longpoller.session).account.setOffline()
+    vk.API(longpoller.session).account.setOffline()
 
 
 def check_thread(uid):
