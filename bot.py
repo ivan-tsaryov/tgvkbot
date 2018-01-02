@@ -434,6 +434,7 @@ def send_text(message, userid, group, forward_messages=None):
         vk.API(session).messages.send(chat_id=userid, message=message.text, forward_messages=forward_messages)
     else:
         vk.API(session).messages.send(user_id=userid, message=message.text, forward_messages=forward_messages)
+    session.account.setOffline()
 
 
 def send_doc(message, userid, group, forward_messages=None):
